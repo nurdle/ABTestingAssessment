@@ -1,0 +1,23 @@
+.CarouselImage1{
+    background-image: url("Img/Carousel-1.jpg");
+    height: 100%;
+    width: 100%;
+}
+
+.CarouselImage2{
+    background-image: url("Img/Carousel-2.jpg");
+    height: 100%;
+    width: 100%;
+}
+
+.carousel,
+.carousel-item,
+.carousel-inner {
+    height: 700px !important;
+    width: 100% !important;
+}
+.Radio-Button{
+    padding-top: 10%;
+    border-color: red;
+    border-radius: 25%;
+}
