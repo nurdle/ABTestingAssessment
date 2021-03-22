@@ -4,7 +4,7 @@
 $host_name = 'db5002042417.hosting-data.io';
 $database = 'dbs1662118';
 $user_name = 'dbu615958';
-$password = 'WalkersBomb99!';
+$password = $_ENV["DB_PASS"];
 
 $link = new mysqli($host_name, $user_name, $password, $database);
 echo"Code Running";

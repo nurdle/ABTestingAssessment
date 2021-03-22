@@ -25,19 +25,43 @@
   </div>
 </nav>
 
-<form class="col-sm-6 offset-sm-3 text-center" action="CreateAccount.php" method="post">
+<form class="col-sm-6 offset-sm-3 text-center" action="Login.php" method="post">
     <p>Hello, please enter your username and password to continue: </p>
 Username: <input type="text" name="uname">
 <br>
 password: <input type="password" name="pword">
-<br>
-Email: <input type="text" name="pword">
-<div class="Create-button"><input type="Submit" name="Create New Account" value="Create New Account"></div>
+<input type="submit" value="Log in" name="Login-Button">
+</form>
+<form class="col-sm-6 offset-sm-3 text-center" action="CreateAccount.php" method="post">
+<div class="Login-button"><input type="Submit" name="Create New Account" value="Create New Account"></div>
 </form>
 
+
 <?php
+$host_name = 'db5002042417.hosting-data.io';
+$database = 'dbs1662118';
+$user_name = 'dbu615958';
+$password = 'WalkersBomb99!';
 
+$link = new mysqli($host_name, $user_name, $password, $database);
+if ($link->connect_error) {
+  die('<p>Failed to connect to MySQL: '. $link->connect_error .'</p>');
+} else {
+  echo '<p>Connection to MySQL server successfully established.</p>';
+}
 
-
+function Validate($uname, $pword, $link){
+    $sql = "SELECT * FROM Users WHERE (Username =:'$uname')";
+    $result = $link->query($sql);
+    if($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            if(password_verify($pword, $row["Password"])){
+                echo("PASSWORD ACCEPTED");
+            }}}
+}
+if(isset($_POST["Login-Button"])){
+    Validate($_POST["uname"], $_POST["pword"], $link);
+}
 
 ?>
+</body>
