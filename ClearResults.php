@@ -8,7 +8,7 @@ if ($link->connect_error) {
     die('<p>Failed to connect to MySQL: '. $link->connect_error .'</p>');
 }
 
-$sql = "DELETE * FROM OptionSelected";
+$sql = "TRUNCATE TABLE OptionSelected";
 if (mysqli_query($link, $sql)){
     echo"User Deleted";
     echo ("<script> window.location = 'http://abtesting.mertyrsolutions.com/index.html'; </script>");

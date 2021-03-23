@@ -17,8 +17,8 @@
 .carousel,
 .carousel-item,
 .carousel-inner {
-    height: 700px !important;
-    width: 100% !important;
+    height: 100% !important;
+    width: 50% !important;
     background-repeat: no-repeat;
     align-content: center;
 }

@@ -36,4 +36,10 @@ password: <input type="password" name="pword">
 <div class="Login-button"><input type="Submit" name="Create New Account" value="Create New Account"></div>
 </form>
 
+<?php
+if(isset($_COOKIE["username"])){
+  echo ("<script> window.location = 'http://abtesting.mertyrsolutions.com/Dashboard.php'; </script>");
+}
+
+?>
 </body>

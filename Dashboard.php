@@ -29,7 +29,7 @@
 <?php
     if(!isset($_COOKIE["username"])){
         echo $_COOKIE["username"];
-        echo"<p>ERROR: 403. You do not have permission to view this page. Please log in</p>";
+        echo ("<script> window.location = 'http://abtesting.mertyrsolutions.com/index.html'; </script>");
     } else {
     $host_name = 'db5002042417.hosting-data.io';
     $database = 'dbs1662118';
@@ -62,10 +62,10 @@
     $APercent = ($ACounter / $TotalClicks) * 100;
     $BPercent = ($BCounter / $TotalClicks) * 100;
     echo
-    "<p> Total no. choices for option A: $ACounter</p>"
-    ."<p> Total no. choices for option B: $BCounter</p>"
-    ."<p> Total no. page interactions: $TotalClicks</p>"
-    ."<p> Choices for A: $APercent% Choices for B: $BPercent%</p>"
+    "<p style='text-align:center;'> Total no. choices for option A: $ACounter</p>"
+    ."<p style='text-align:center;'> Total no. choices for option B: $BCounter</p>"
+    ."<p style='text-align:center;'> Total no. page interactions: $TotalClicks</p>"
+    ."<p style='text-align:center;'> Choices for A: $APercent% Choices for B: $BPercent%</p>"
     ;
     }
 
@@ -79,6 +79,9 @@
 </form>
 <form class="col-sm-6 offset-sm-3 text-center"  action="ClearResults.php" method="post">
     <input type="submit" name = "submit" value = "Clear Results">
+</form>
+<form class="col-sm-6 offset-sm-3 text-center"  action="Logout.php" method="post">
+    <input type="submit" name = "submit" value = "Logout">
 </form>
 </body>
 </html>
