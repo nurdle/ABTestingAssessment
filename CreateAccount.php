@@ -13,7 +13,7 @@
 </head>
 <body style="background-color: grey;">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">AB Testing Playground</a>
+  <a class="navbar-brand" href="index.html">AB Testing Playground</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -25,19 +25,13 @@
   </div>
 </nav>
 
-<form class="col-sm-6 offset-sm-3 text-center" action="CreateAccount.php" method="post">
+<form class="col-sm-6 offset-sm-3 text-center" action="InsertAccount.php" method="post">
     <p>Hello, please enter your username and password to continue: </p>
 Username: <input type="text" name="uname">
 <br>
 password: <input type="password" name="pword">
 <br>
-Email: <input type="text" name="pword">
+Email: <input type="text" name="email">
 <div class="Create-button"><input type="Submit" name="Create New Account" value="Create New Account"></div>
 </form>
 
-<?php
-
-
-
-
-?>

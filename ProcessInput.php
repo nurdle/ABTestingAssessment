@@ -4,10 +4,12 @@
 $host_name = 'db5002042417.hosting-data.io';
 $database = 'dbs1662118';
 $user_name = 'dbu615958';
-$password = $_ENV["DB_PASS"];
+$password = 'WalkersBomb99!';
 
 $link = new mysqli($host_name, $user_name, $password, $database);
 echo"Code Running";
+echo phpinfo();
+echo"Password is :$password";
 if ($link->connect_error) {
   die('<p>Failed to connect to MySQL: '. $link->connect_error .'</p>');
 } else {

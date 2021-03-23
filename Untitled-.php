@@ -9,7 +9,7 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
   <link rel="stylesheet" href="css/Styles.css" >
-  <title>Mertyr Software Solutions</title>
+  <title>AB Testing - Dashboard</title>
 </head>
 <body style="background-color: grey;">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -24,16 +24,41 @@
     </div>
   </div>
 </nav>
+<?php
+    if(!isset($_COOKIE[$cookie_name])){
+        echo"<p>ERROR: 403. You do not have permission to view this page. Please log in</p>";
+    } else {
+    $host_name = 'db5002042417.hosting-data.io';
+    $database = 'dbs1662118';
+    $user_name = 'dbu615958';
+    $password = 'WalkersBomb99!';
+    
+    $link = new mysqli($host_name, $user_name, $password, $database);
+    if ($link->connect_error) {
+      die('<p>Failed to connect to MySQL: '. $link->connect_error .'</p>');
+    } else {
+      echo '<p>Connection to MySQL server successfully established.</p>';
+    }
+    $sql = "SELECT * FROM OptionSelected";
+    $result = $link->query($sql);
+    $counter = 1;
+    while($row = mysqli_fetch_array($result)){
+        // if the 4th cell, end last row, and start new row
+            if ($counter%3==1){
+                echo "</tr><tr>";
+            }
+            echo
+                "<td width='180px' height='200px'>"
+                ."<div class = 'fruit_image'>"
+                ."<img src='"
+                .$row['ChoiceMade'];
+            // increase the counter
+            $counter++;
+        }
+    }
 
-<form class="col-sm-6 offset-sm-3 text-center" action="Auth.php" method="post">
-    <p>Hello, please enter your username and password to continue: </p>
-Username: <input type="text" name="uname">
-<br>
-password: <input type="password" name="pword">
-<input type="submit" value="Log in" name="Login-Button">
-</form>
-<form class="col-sm-6 offset-sm-3 text-center" action="CreateAccount.php" method="post">
-<div class="Login-button"><input type="Submit" name="Create New Account" value="Create New Account"></div>
-</form>
 
-</body>
+    }
+
+
+?>
