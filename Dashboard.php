@@ -44,25 +44,28 @@
     $result = $link->query($sql);
     $ACounter = 0;
     $BCounter = 0;
+    $TotalClicks = 0;
     while($row = mysqli_fetch_array($result)){
         // if the 4th cell, end last row, and start new row
             echo
                 "<td width='180px' height='100px'>"
-                ."<div class = 'choices-made' style='text-align:center;'>"
-                ."<p>"
-                .$row['ChoiceMade']
-                ."</p>"
-                ;
+                ."<div class = 'choices-made' style='text-align:center;'>";
             if($row['ChoiceMade'] == "Option A"){
                 $ACounter = $ACounter + 1;
+                $TotalClicks = $TotalClicks + 1;
             } elseif($row['ChoiceMade'] == "Option B"){
                 $BCounter = $BCounter + 1;
+                $TotalClicks = $TotalClicks + 1;
             }
     
         }
+    $APercent = ($ACounter / $TotalClicks) * 100;
+    $BPercent = ($BCounter / $TotalClicks) * 100;
     echo
     "<p> Total no. choices for option A: $ACounter</p>"
     ."<p> Total no. choices for option B: $BCounter</p>"
+    ."<p> Total no. page interactions: $TotalClicks</p>"
+    ."<p> Choices for A: $APercent% Choices for B: $BPercent%</p>"
     ;
     }
 
@@ -71,5 +74,11 @@
 
 
 ?>
+<form class="col-sm-6 offset-sm-3 text-center"  action="DeleteAccount.php" method="post">
+    <input type="submit" name = "submit" value = "Delete Account">
+</form>
+<form class="col-sm-6 offset-sm-3 text-center"  action="ClearResults.php" method="post">
+    <input type="submit" name = "submit" value = "Clear Results">
+</form>
 </body>
 </html>
